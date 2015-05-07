@@ -39,10 +39,8 @@ main(){
 				printf("O resultado e impar\n");
 			}
 			if(soma%2 ==0 && op =='p' || soma%2 !=0 && op == 'i'){
-				printf("O jogador venceu!\n\n");
 				contU++;
 			}else{
-				printf("O computador venceu!\n\n");
 				contC++;
 			}
 			if(contC>contU){
