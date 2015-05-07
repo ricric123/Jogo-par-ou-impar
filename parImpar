@@ -1,0 +1,62 @@
+#include <stdio.h>  //entrada e saída
+#include <stdlib.h> //randomização
+#include <time.h> //hora
+#include <ctype.h> //maiúscula e minúscula
+
+//função main: inicia a execução do programa
+main(){
+	//configuração do sistema
+	srand(time(NULL)); //marcar a semente da randomizaçao com a hora do sistema
+	
+	int numC, numU, soma, contU, contC, i;
+	char op, jn;
+	do{
+		contU=0;
+		contC=0;
+		
+		//executar 3 rodadas
+		for(i=0;i<3;i++){
+			do{
+				printf("Informe (P)ar ou (I)mpar:");	
+				fflush(stdin);
+				scanf("%c", &op);
+				op=tolower(op); //tolower letras minusculas toupper letras maiusculas
+			}while(op!='p' && op!='i');
+			do{
+				printf("Informe um numero de 1 a 5:");
+				scanf("%d", &numU);
+			}while(numU<1 || numU>5);
+		
+			numC = rand() % 5 + 1;
+			soma=numU+numC;
+			printf("\n\n");
+			printf("Numero do computador:%d\n", numC);
+			printf("Numero do usuario:%d\n", numU);
+			printf("Soma:%d\n", soma);
+			if(soma%2==0){
+				printf("O resultado e par\n");
+			}else{
+				printf("O resultado e impar\n");
+			}
+			if(soma%2 ==0 && op =='p' || soma%2 !=0 && op == 'i'){
+				printf("O jogador venceu!\n\n");
+				contU++;
+			}else{
+				printf("O computador venceu!\n\n");
+				contC++;
+			}
+			if(contC>contU){
+				printf("O computador venceu\n\n");
+			}else{
+				printf("O Jogador venceu\n\n");
+			}
+			
+		}
+		do{	
+				printf("Deseja jogar novamente?(S)im ou (N)ao:");
+				fflush(stdin);
+				scanf("%c", &jn);
+				jn=tolower(jn);
+		}while(jn!='s' && jn!='n');	
+	}while(jn=='s');  
+}
