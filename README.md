@@ -1,1 +1,0 @@
-# Jogo-par-ou-impar
